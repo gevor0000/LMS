@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="Classes.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script>
+        if(sessionStorage.getItem("Username")==null){
+            window.location.replace("index.html");
+        }
+        if(sessionStorage.getItem("Roll")!=="Librarian"){
+            logout();
+            window.location.replace("index.html");
+        }
+    </script>
+
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<input type="button" value="Logout" onclick="logout()">
+<input type="text" placeholder="Book Author" id="bookAuthor"/>
+<input type="text" placeholder="Book Name" id="bookName"/>
+
+<input type="button" value="Add Book" onclick="addBook()"/>
+</body>
+</html>

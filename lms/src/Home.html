@@ -12,6 +12,18 @@
     <title>Home</title>
 </head>
 <body>
+<script>
+    if(sessionStorage.getItem("Roll")==="User"){
+        window.location.replace("User.html");
+    }
+    else if(sessionStorage.getItem("Roll")==="Librarian"){
+        window.location.replace("Librarian.html");
+    }
+    else if(sessionStorage.getItem("Roll")!=="Admin"){
+        logout();
+        window.location.replace("index.html");
+    }
+</script>
 <input type="button" value="Logout" onclick="logout()">
 </body>
 </html>

@@ -1,9 +1,13 @@
-let u = new User("Admin", "Admin", new Roll("Admin"));
+//let u = new User("Admin", "Admin", new Roll("Admin"));
 function login() {
     let Username=document.getElementById('Username').value;
     let Password=document.getElementById('Password').value;
+    Usernames=JSON.parse(localStorage.getItem("Usernames"));
+    Passwords=JSON.parse(localStorage.getItem("Passwords"));
+    Rolless=JSON.parse(localStorage.getItem("Rolls"));
     if(Usernames.includes(Username)){
         if (Passwords[Usernames.indexOf(Username)]===Password){
+
             sessionStorage.setItem("Username", Username.toString());
             sessionStorage.setItem("Roll", Rolless[Usernames.indexOf(Username)]);
             location.replace("Home.html");
@@ -28,4 +32,27 @@ function Register() {
 function logout() {
     sessionStorage.clear();
     location.reload();
+}
+let BookNames = [];
+let BookAuthors=[];
+// BookNames.push("Samvel");
+// BookAuthors.push("Raffi");
+//
+// localStorage.setItem("BookNames", JSON.stringify(BookNames));
+// localStorage.setItem("BookAuthors", JSON.stringify(BookAuthors));
+
+BookNames=JSON.parse(localStorage.getItem("BookNames"));
+BookAuthors=JSON.parse(localStorage.getItem("BookAuthors"));
+function addBook() {
+    let name=document.getElementById("bookName").value;
+    let author=document.getElementById("bookAuthor").value;
+    BookNames.push(name);
+    BookAuthors.push(author);
+    localStorage.setItem("BookNames", JSON.stringify(BookNames));
+    localStorage.setItem("BookAuthors", JSON.stringify(BookAuthors));
+    alert("The book has successfully been added");
+    location.reload();
+}
+function viewBooks() {
+    
 }

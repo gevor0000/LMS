@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="Classes.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script>
+        if(sessionStorage.getItem("Username")==null){
+            window.location.replace("index.html");
+        }
+        if(sessionStorage.getItem("Roll")!=="User"){
+            logout();
+            window.location.replace("index.html");
+        }
+    </script>
+
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<input type="button" value="Logout" onclick="logout()">
+</body>
+</html>

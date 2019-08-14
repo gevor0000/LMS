@@ -33,6 +33,7 @@ function logout() {
     sessionStorage.clear();
     location.reload();
 }
+let Permissions=["addBook", "removeBook", "addUser", "deleteUser", "takeBook"];
 let BookNames = [];
 let BookAuthors=[];
 // BookNames.push("Samvel");
@@ -53,6 +54,40 @@ function addBook() {
     alert("The book has successfully been added");
     location.reload();
 }
-function viewBooks() {
-    
+
+function removeBook(name, author) {
+    for(let i in BookNames){
+        if (i===name && BookAuthors[BookNames.indexOf(i)]===author){
+            BookNames.removeItem(BookNames.indexOf(i));
+            BookAuthors.removeItem(BookNames.indexOf(i));
+        }
+    }
+}
+
+function permission(role) {
+    let permissions=[];
+    if(role==="User"){
+        permissions.push("takeBook");
+    }
+    if(role==="Librarian"){
+        permissions.push("addBook");
+        permissions.push("removeBook");
+        permissions.push("takeBook");
+    }
+    if (role==="Admin"){
+        permissions.push("addBook");
+        permissions.push("removeBook");
+        permissions.push("takeBook");
+        permissions.push("addUser");
+        permissions.push("deleteUser");
+    }
+    return permissions;
+}
+
+function display() {
+    let permissions=permission(sessionStorage.getItem("Roll"));
+    if(permissions.includes("addBook")){
+
+    }
+
 }

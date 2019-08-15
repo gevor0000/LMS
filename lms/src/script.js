@@ -86,8 +86,25 @@ function permission(role) {
 
 function display() {
     let permissions=permission(sessionStorage.getItem("Roll"));
-    if(permissions.includes("addBook")){
-
+    if(!permissions.includes("addBook")){
+        document.getElementById("addBook").style.display="none";
+    }
+    if(!permissions.includes("removeBook")){
+        document.getElementById("removeBook").style.display="none";
+    }
+    if(!permissions.includes("takeBook")){
+        document.getElementById("takeBook").style.display="none";
+    }
+    if(!permissions.includes("addUser")){
+        document.getElementById("addUser").style.display="none";
+    }
+    if(!permissions.includes("deleteUser")){
+        document.getElementById("deleteUser").style.display="none";
     }
 
+}
+
+function removeUser() {
+    let username = document.getElementById("User").value;
+    //...
 }

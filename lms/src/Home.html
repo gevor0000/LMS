@@ -12,18 +12,33 @@
     <title>Home</title>
 </head>
 <body>
-<script>
-    if(sessionStorage.getItem("Roll")==="User"){
-        window.location.replace("User.html");
-    }
-    else if(sessionStorage.getItem("Roll")==="Librarian"){
-        window.location.replace("Librarian.html");
-    }
-    else if(sessionStorage.getItem("Roll")!=="Admin"){
-        logout();
-        window.location.replace("index.html");
-    }
-</script>
-<input type="button" value="Logout" onclick="logout()">
+    <div id="addBook">
+        <input type="text" placeholder="Book Author" id="bookAuthor"/>
+        <input type="text" placeholder="Book Name" id="bookName"/>
+        <input type="button" value="Add Book" onclick="addBook()"/>
+    </div>
+
+    <div id="removeBook">
+
+    </div>
+
+    <div id="addUser">
+        <input type="text" id="Username">
+        <input type="password" id="Password">
+        <input type="text" id ="Roll">
+        <input type="submit" onclick="Register()" value="Add User">
+    </div>
+
+    <div id="deleteUser">
+        <input type="text" id="User">
+        <input type="button" value="Delete User" onclick="removeUser()">
+    </div>
+
+    <div id="takeBook">
+
+    </div>
+
+    <input type="button" value="Logout" onclick="logout()">
 </body>
+<script>display();</script>
 </html>

@@ -105,6 +105,31 @@ function display() {
 }
 
 function removeUser() {
+
     let username = document.getElementById("User").value;
-    //...
+    Usernames=JSON.parse(localStorage.getItem("Usernames"));
+    Passwords=JSON.parse(localStorage.getItem("Passwords"));
+    Rolless=JSON.parse(localStorage.getItem("Rolls"));
+    // Usernames.delete(Usernames.indexOf(username));
+    let a=Usernames.indexOf(username);
+    delete Usernames[a];
+    delete Passwords[a];
+    delete Rolless[a];
+    //.removeItem(Usernames.indexOf(username));
+    localStorage.setItem("Usernames", JSON.stringify(Usernames));
+    localStorage.setItem("Passwords", JSON.stringify(Passwords));
+    localStorage.setItem("Rolls", JSON.stringify(Rolless));
+}
+
+function viewBooks() {
+    let t = document.getElementById("bookTable");
+    let BookNames=JSON.parse(localStorage.getItem("BookNames"));
+    let BookAuthors=JSON.parse(localStorage.getItem("BookAuthors"));
+    for(let l=0; l<BookNames.length; l++){
+        let row = t.insertRow(l);
+        let cell1 = row.insertCell(0);
+        let cell2 = row.insertCell(1);
+        cell1.innerHTML = BookNames[l];
+        cell2.innerHTML = BookAuthors[l];
+    }
 }
